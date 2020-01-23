@@ -44,7 +44,10 @@ class _LevelXYState extends State<LevelXY> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              customPaint,
+              CustomPaint(
+                painter: Circle(x: widget.x),
+                child: Container(),
+              ),
               Marker(
                 x: widget.x,
                 y: widget.y,

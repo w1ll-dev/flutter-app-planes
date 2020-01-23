@@ -47,9 +47,9 @@ class _MyHomePageState extends State<MyHomePage> {
   randomPositions(Timer timer){
     var rng = Random(); 
     setState((){
-      x = rng.nextInt(10) + rng.nextDouble();
-      y = rng.nextInt(10) + rng.nextDouble();
-      z = rng.nextInt(10) + rng.nextDouble();
+      x = rng.nextInt(20) + rng.nextDouble();
+      y = rng.nextInt(20) + rng.nextDouble();
+      z = rng.nextInt(20) + rng.nextDouble();
     });
   }
   
