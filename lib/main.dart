@@ -47,9 +47,9 @@ class _MyHomePageState extends State<MyHomePage> {
   randomPositions(Timer timer){
     var rng = Random(); 
     setState((){
-      x = rng.nextInt(20) + rng.nextDouble();
-      y = rng.nextInt(20) + rng.nextDouble();
-      z = rng.nextInt(20) + rng.nextDouble();
+      x = rng.nextInt(10) + rng.nextDouble();
+      y = rng.nextInt(10) + rng.nextDouble();
+      z = rng.nextInt(10) + rng.nextDouble();
     });
   }
   
@@ -66,12 +66,6 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: Icon(Icons.play_arrow),
               onPressed: () {
                 startWatch();
-              },
-            ),
-            IconButton(
-              icon: Icon(Icons.pause),
-              onPressed: () {
-                stopWatch();
               },
             ),
           ],
@@ -109,9 +103,6 @@ class _MyHomePageState extends State<MyHomePage> {
             LevelYZ( 
               room: RoomYZ(),
             ),
-            // FloatingActionButton(
-            //   onPressed: randomPositions(),
-            // )
           ]
         ),
       ),

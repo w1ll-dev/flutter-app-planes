@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import '../drowing/circle.dart';
 
 class RoomXY {}
 
@@ -43,7 +44,9 @@ class _LevelXYState extends State<LevelXY> {
         child: Card(
           child: Stack(
             children: <Widget>[
-
+              Container(
+                child: customPaint,
+              ),
               Marker(
                 x: widget.x,
                 y: widget.y,
@@ -67,6 +70,6 @@ class Marker extends StatelessWidget {
     print("x: $x, y: $y");
     return Transform(
       transform: Matrix4.translationValues(x, y, 0.0), 
-      child: CircleAvatar());
+      child: CircleAvatar(radius: 50,));
   }
 }
