@@ -38,15 +38,13 @@ class _LevelXYState extends State<LevelXY> {
           setState(() {
             x += p.delta.dx;
             y = (y + p.delta.dy) >ymax - markerHight ? ymax - markerHight : y + p.delta.dy;
-
           });
         },
-        child: Card(
-          child: Stack(
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Container(
-                child: customPaint,
-              ),
+              customPaint,
               Marker(
                 x: widget.x,
                 y: widget.y,
@@ -70,6 +68,6 @@ class Marker extends StatelessWidget {
     print("x: $x, y: $y");
     return Transform(
       transform: Matrix4.translationValues(x, y, 0.0), 
-      child: CircleAvatar(radius: 50,));
+      child: CircleAvatar(radius: 150, backgroundColor: Colors.black,));
   }
 }
