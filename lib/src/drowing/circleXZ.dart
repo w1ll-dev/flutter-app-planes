@@ -13,7 +13,7 @@ class CircleXZ extends CustomPainter{
     if(x > 25 || z > 35){
       paint.color = Colors.red;
     }
-    print('x : $x // z : $z');
+    // print('x : $x // z : $z');
     canvas.drawCircle(Offset(205, 150), 180, paint);
   }
 

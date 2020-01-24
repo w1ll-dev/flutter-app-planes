@@ -18,7 +18,7 @@ class LevelXZ extends StatefulWidget {
 }
 
 class _LevelXZState extends State<LevelXZ> {
-  double x = 0.0;
+  double x = 0.0; 
   double z = 0.0;
 
   @override

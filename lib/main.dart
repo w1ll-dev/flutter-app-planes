@@ -1,9 +1,10 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:levelApp/src/level/levelZY.dart';
 import 'dart:ui';
-import './src/level/level_x_y.dart';
-import './src/level/level_x_z.dart';
-import './src/level/level_y_z.dart';
+import './src/level/levelXY.dart';
+import './src/level/levelXZ.dart';
+import './src/level/levelZY.dart';
 import 'dart:async';
 
 void main() => runApp(MyApp());
@@ -37,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   startWatch() {
     watch.start();
-    timer = Timer.periodic(Duration(milliseconds: 50), randomPositions);
+    timer = Timer.periodic(Duration(milliseconds: 1), randomPositions);
   }
 
   randomPositions(Timer timer) {
@@ -77,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 // icon: Icon(Icons.account_box),
               ),
               Tab(
-                text: "Y : Z",
+                text: "Z : Y",
                 // icon: Icon(Icons.account_box),
               ),
             ],
@@ -95,8 +96,10 @@ class _MyHomePageState extends State<MyHomePage> {
               x: this.x,
               z: this.z,
             ),
-            LevelYZ( 
-              room: RoomYZ(),
+            LevelZY( 
+              room: RoomZY(),
+              z: this.z,
+              y: this.y,
             ),
           ]
         ),
