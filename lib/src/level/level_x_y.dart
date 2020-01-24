@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import '../drowing/circle.dart';
+import 'package:levelApp/src/drowing/circleXY.dart';
+import '../drowing/circleXY.dart';
 
 class RoomXY {}
 
@@ -32,7 +33,7 @@ class _LevelXYState extends State<LevelXY> {
 
     double ymax = context.findRenderObject()?.paintBounds?.bottom ?? markerHight ;
 
-    return SizedBox(
+    return Container(
       child: GestureDetector(
         onPanUpdate: (p) {
           setState(() {
@@ -45,7 +46,10 @@ class _LevelXYState extends State<LevelXY> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               CustomPaint(
-                painter: Circle(x: widget.x),
+                painter: CircleXY(
+                  x: widget.x,
+                  y: widget.y
+                ),
                 child: Container(),
               ),
               Marker(
@@ -71,6 +75,6 @@ class Marker extends StatelessWidget {
     print("x: $x, y: $y");
     return Transform(
       transform: Matrix4.translationValues(x, y, 0.0), 
-      child: CircleAvatar(radius: 150, backgroundColor: Colors.black,));
+      child: CircleAvatar(radius: 150, backgroundColor: Colors.lightGreen,));
   }
 }

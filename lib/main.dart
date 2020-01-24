@@ -1,6 +1,6 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'dart:ui';
 import './src/level/level_x_y.dart';
 import './src/level/level_x_z.dart';
 import './src/level/level_y_z.dart';
@@ -37,23 +37,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   startWatch() {
     watch.start();
-    timer = Timer.periodic(Duration(milliseconds: 10), randomPositions);
+    timer = Timer.periodic(Duration(milliseconds: 50), randomPositions);
   }
 
-  stopWatch() {
-    watch.stop();
-  }
-
-  randomPositions(Timer timer){
+  randomPositions(Timer timer) {
     var rng = Random(); 
     setState((){
-      x = rng.nextInt(20) + rng.nextDouble();
-      y = rng.nextInt(20) + rng.nextDouble();
-      z = rng.nextInt(20) + rng.nextDouble();
+      x = rng.nextInt(30) + rng.nextDouble();
+      y = rng.nextInt(60) + rng.nextDouble();
+      z = rng.nextInt(30) + rng.nextDouble();
     });
   }
   
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

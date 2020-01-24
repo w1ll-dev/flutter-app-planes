@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:levelApp/src/drowing/circleXZ.dart';
 
 class RoomXZ {}
 
@@ -38,10 +39,17 @@ class _LevelXZState extends State<LevelXZ> {
 
           });
         },
-        child: Card(
-          child: Stack(
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-
+              CustomPaint(
+                painter: CircleXZ(
+                  x: widget.x,
+                  z: widget.z
+                ),
+                child: Container(),
+              ),
               Marker(
                 x: widget.x,
                 z: widget.z,
@@ -65,6 +73,6 @@ class Marker extends StatelessWidget {
     print("x: $x, z: $z");
     return Transform(
       transform: Matrix4.translationValues(x, z, 0.0), 
-      child: CircleAvatar());
+      child: CircleAvatar(radius: 150, backgroundColor: Colors.lightGreen,));
   }
 }

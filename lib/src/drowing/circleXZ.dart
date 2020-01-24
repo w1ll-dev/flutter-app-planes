@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:ui' as ui;
 
-class Circle extends CustomPainter{
+class CircleXZ extends CustomPainter{
   double x;
+  double z;
 
   @override
   void paint(ui.Canvas canvas, ui.Size size ) {
     Paint paint = Paint();
     paint.color = Colors.blue;
-    if(x > 10){
+    if(x > 25 || z > 35){
       paint.color = Colors.red;
     }
-    print(x);
+    print('x : $x // z : $z');
     canvas.drawCircle(Offset(205, 150), 180, paint);
   }
 
@@ -20,8 +21,9 @@ class Circle extends CustomPainter{
   bool shouldRepaint(CustomPainter oldDelegate) {
     return false;
   }
-  Circle({this.x});
+  CircleXZ({this.x, this.z});
 }
+
 
 
 
