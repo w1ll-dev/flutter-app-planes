@@ -38,15 +38,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   startWatch() {
     watch.start();
-    timer = Timer.periodic(Duration(milliseconds: 1), randomPositions);
+    timer = Timer.periodic(Duration(milliseconds: 800), randomPositions);
   }
 
   randomPositions(Timer timer) {
     var rng = Random(); 
     setState((){
-      x = rng.nextInt(30) + rng.nextDouble();
-      y = rng.nextInt(60) + rng.nextDouble();
-      z = rng.nextInt(30) + rng.nextDouble();
+      x = (rng.nextInt(30) - 15) - rng.nextDouble();
+      y = (rng.nextInt(60) - 30) - rng.nextDouble();
+      z = (rng.nextInt(30) - 15) - rng.nextDouble();
     });
   }
   
