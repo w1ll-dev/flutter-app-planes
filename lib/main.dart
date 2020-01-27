@@ -14,7 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'SISMIC',
-      theme: ThemeData(primaryColor: Colors.red),
+      theme: ThemeData(
+        primaryColor: Colors.red,
+        fontFamily: 'Quebec Black',  
+      ),
       home: MyHomePage(title: 'SISMIC'),
     );
   }
@@ -68,11 +71,15 @@ class _MyHomePageState extends State<MyHomePage> {
             // action button
             IconButton(
               icon: Icon(Icons.play_arrow),
-              onPressed: startWatch,
+              onPressed: (){
+                startWatch();
+              }
             ),
             IconButton(
               icon: Icon(Icons.pause),
-              onPressed: stopWatch,
+              onPressed:(){
+                stopWatch();
+              }
             ),
           ],
           centerTitle: true,

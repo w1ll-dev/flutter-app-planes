@@ -4,6 +4,7 @@ import 'package:levelApp/src/drawing/circleMachine.dart';
 import 'package:levelApp/src/drawing/circleXY.dart';
 import '../drawing/circleXY.dart';
 
+
 class RoomXY {}
 
 class LevelXY extends StatefulWidget {
@@ -80,8 +81,25 @@ class _LevelXYState extends State<LevelXY> {
                         x: widget.x,
                         y: widget.y,
                       ),
-                      Text(
-                        'G = 2.4'
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "2,4",
+                            style: TextStyle(
+                              fontFamily: 'Quebec Black', 
+                              fontSize: 40.0
+                            ),
+                          ),
+                          Text(
+                            "G",
+                            style: TextStyle(
+                              fontFamily: 'Quebec Black',
+                              color: Colors.lightBlue, 
+                              fontSize: 40.0
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -94,8 +112,25 @@ class _LevelXYState extends State<LevelXY> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Text(
-                    "110HZ"
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "1125",
+                        style: TextStyle(
+                          fontFamily: 'Quebec Black',
+                          fontSize: 40.0
+                        ),
+                      ),
+                      Text(
+                        "Hz",
+                        style: TextStyle(
+                          color: Colors.lightBlue, 
+                          fontFamily: 'Quebec Black', 
+                          fontSize: 40.0
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
