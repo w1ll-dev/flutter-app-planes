@@ -34,10 +34,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Stopwatch watch = Stopwatch();
   Timer timer;
+  
+  stopWatch(){
+    watch.stop();
+    setState(() {
+      x = 0.0;
+      y = 0.0;
+      z = 0.0;
+    });
+  }
 
   startWatch() {
     watch.start();
-    timer = Timer.periodic(Duration(milliseconds: 800), randomPositions);
+    timer = Timer.periodic(Duration(milliseconds: 10), randomPositions);
   }
 
   randomPositions(Timer timer) {
@@ -59,9 +68,11 @@ class _MyHomePageState extends State<MyHomePage> {
             // action button
             IconButton(
               icon: Icon(Icons.play_arrow),
-              onPressed: () {
-                startWatch();
-              },
+              onPressed: startWatch,
+            ),
+            IconButton(
+              icon: Icon(Icons.pause),
+              onPressed: stopWatch,
             ),
           ],
           centerTitle: true,
