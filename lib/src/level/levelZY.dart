@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import '../drawing/circleMachine.dart';
 import '../drawing/circleZY.dart';
+import 'package:dotted_border/dotted_border.dart';
 
 class RoomZY {}
 
@@ -11,6 +12,8 @@ class LevelZY extends StatefulWidget {
   double y;
   double g;
   int hz;
+  int hzMax;
+  int hzMin;
 
   LevelZY({
     @required 
@@ -19,6 +22,8 @@ class LevelZY extends StatefulWidget {
     this.y,
     this.g,
     this.hz,
+    this.hzMax,
+    this.hzMin,
   }) : assert(room != null);
 
   @override
@@ -99,31 +104,124 @@ class _LevelZYState extends State<LevelZY> {
               flex: 2,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "${widget.hz}",
-                        style: TextStyle(
-                          fontFamily: 'Quebec Black',
-                          fontSize: 40.0
-                        ),
+                  Flexible(
+                    flex: 2,
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 20.0,),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: <Widget>[
+                          Text(
+                            "${widget.hzMax}",
+                            style: TextStyle(
+                              fontFamily: 'Quebec Black',
+                              fontSize: 15.0
+                            ),
+                          ),
+                          Text(
+                            "Hz",
+                            style: TextStyle(
+                              color: Colors.lightBlue, 
+                              fontFamily: 'Quebec Black', 
+                              fontSize: 15.0
+                            ),
+                          ),
+                        ],
                       ),
-                      Text(
-                        "Hz",
-                        style: TextStyle(
-                          color: Colors.lightBlue, 
-                          fontFamily: 'Quebec Black', 
-                          fontSize: 40.0
-                        ),
+                    ),
+                  ),
+                  Flexible(
+                    flex: 6,
+                    child: DottedBorder(
+                      dashPattern: [3],
+                      borderType: BorderType.Rect,
+                      color: Colors.grey,
+                      strokeWidth: 1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        
+                        children: <Widget>[
+                          Text(
+                            "${widget.hz}",
+                            style: TextStyle(
+                              fontFamily: 'Quebec Black',
+                              fontSize: 40.0
+                            ),
+                          ),
+                          Text(
+                            "Hz",
+                            style: TextStyle(
+                              color: Colors.lightBlue, 
+                              fontFamily: 'Quebec Black', 
+                              fontSize: 40.0
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
+                  ),
+                  Flexible(
+                    flex: 2,
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 20.0,),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            "${widget.hzMin}",
+                            style: TextStyle(
+                              fontFamily: 'Quebec Black',
+                              fontSize: 15.0
+                            ),
+                          ),
+                          Text(
+                            "Hz",
+                            style: TextStyle(
+                              color: Colors.lightBlue, 
+                              fontFamily: 'Quebec Black', 
+                              fontSize: 15.0
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),
             ),
+            // Flexible(
+            //   flex: 2,
+            //   child: Column(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     crossAxisAlignment: CrossAxisAlignment.center,
+            //     children: <Widget>[
+            //       Row(
+            //         mainAxisAlignment: MainAxisAlignment.center,
+            //         children: <Widget>[
+            //           Text(
+            //             "${widget.hz}",
+            //             style: TextStyle(
+            //               fontFamily: 'Quebec Black',
+            //               fontSize: 40.0
+            //             ),
+            //           ),
+            //           Text(
+            //             "Hz",
+            //             style: TextStyle(
+            //               color: Colors.lightBlue, 
+            //               fontFamily: 'Quebec Black', 
+            //               fontSize: 40.0
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     ],
+            //   ),
+            // ),
           ],
         ),
       ),

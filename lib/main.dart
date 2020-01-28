@@ -147,6 +147,8 @@ class _MyHomePageState extends State<MyHomePage> {
               z: this.z,
               g: this.g,
               hz: this.hz,
+              hzMax: this.hzMax,
+              hzMin: this.hzMin,
             ),
             LevelZY( 
               room: RoomZY(),
@@ -154,6 +156,8 @@ class _MyHomePageState extends State<MyHomePage> {
               y: this.y,
               g: this.g,
               hz: this.hz,
+              hzMax: this.hzMax,
+              hzMin: this.hzMin,
             ),
           ]
         ),

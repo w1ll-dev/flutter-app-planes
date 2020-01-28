@@ -138,6 +138,8 @@ class _LevelXYState extends State<LevelXY> {
                   Flexible(
                     flex: 6,
                     child: DottedBorder(
+                      dashPattern: [3],
+                      borderType: BorderType.Rect,
                       color: Colors.grey,
                       strokeWidth: 1,
                       child: Row(
