@@ -9,14 +9,30 @@ class CircleZY extends CustomPainter{
   @override
   void paint(ui.Canvas canvas, ui.Size size ) {
     Paint paint = Paint();
-    paint.color = Colors.blue;
+    paint.color = Colors.lightGreenAccent[700];
     paint.style = PaintingStyle.stroke;
-    paint.strokeWidth = size.width/25;
-    if(z > 20 || y > 22){
-      paint.color = Colors.red;
+    paint.strokeWidth = size.width/35;
+    if(z >= 13 || z <= -13){
+      if(z > 13){
+        paint.color = Colors.red;
+      }else if(y != 0){
+        paint.color = Colors.red;
+      }
     }
-    // print('z : $z // y : $y');
-    canvas.drawCircle(Offset(205, 150), 180, paint);
+    if(y >= 13 || y <= -13){
+      if(y > 13){
+        paint.color = Colors.red;
+      }else if(y != 0){
+        paint.color = Colors.red;
+      }
+    }
+    for(int i=0; i<36; i++){
+      canvas.drawArc(Offset(30, 35)
+      & Size(350, 350), (-90.0 + i*10)*0.0174533, 8*0.0174533,
+        false, paint..color = paint.color
+      );
+    }
+    print('z : $z // y : $y');
   }
 
   @override

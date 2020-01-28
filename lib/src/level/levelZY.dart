@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import '../drawing/circleMachine.dart';
 import '../drawing/circleZY.dart';
 
 class RoomZY {}
@@ -40,23 +41,86 @@ class _LevelZYState extends State<LevelZY> {
             y = (y + p.delta.dy) >ymax - markerHight ? ymax - markerHight : y + p.delta.dy;
           });
         },
-        child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              CustomPaint(
-                painter: CircleZY(
-                  z: widget.z,
-                  y: widget.y
-                ),
-                child: Container(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Flexible(
+              flex: 6,
+              child: Stack(
+                alignment: Alignment(0.0, 0.0),
+                children: <Widget>[
+                  Image(
+                    image: AssetImage('assets/images/LAT.png'),
+                  ),
+                  CustomPaint(
+                    painter: CircleZY(
+                      z: widget.z,
+                      y: widget.y
+                    ),
+                    child: Container(),
+                  ),
+                  Stack(
+                    alignment: Alignment(0.0, 0.0),
+                    children: <Widget>[
+                      Marker(
+                        z: widget.z,
+                        y: widget.y,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "2,4",
+                            style: TextStyle(
+                              fontFamily: 'Quebec Black', 
+                              fontSize: 40.0
+                            ),
+                          ),
+                          Text(
+                            "G",
+                            style: TextStyle(
+                              fontFamily: 'Quebec Black',
+                              color: Colors.lightBlue, 
+                              fontSize: 40.0
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],  
+              ), 
+            ),
+            Flexible(
+              flex: 2,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "1125",
+                        style: TextStyle(
+                          fontFamily: 'Quebec Black',
+                          fontSize: 40.0
+                        ),
+                      ),
+                      Text(
+                        "Hz",
+                        style: TextStyle(
+                          color: Colors.lightBlue, 
+                          fontFamily: 'Quebec Black', 
+                          fontSize: 40.0
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              Marker(
-                z: widget.z,
-                y: widget.y,
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -74,6 +138,10 @@ class Marker extends StatelessWidget {
     print("z: $z, y: $y");
     return Transform(
       transform: Matrix4.translationValues(z, y, 0.0), 
-      child: CircleAvatar(radius: 150, backgroundColor: Colors.lightGreen,));
+      child: CustomPaint(
+        painter: CircleMachine(),
+        child: Container(),
+      ) 
+    );
   }
 }

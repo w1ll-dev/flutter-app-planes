@@ -34,6 +34,8 @@ class _MyHomePageState extends State<MyHomePage> {
   double x = 0.0;
   double y = 0.0;
   double z = 0.0;
+  double g = 2.4;
+  int hz = 600;
 
   Stopwatch watch = Stopwatch();
   Timer timer;
@@ -49,15 +51,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
   startWatch() {
     watch.start();
-    timer = Timer.periodic(Duration(milliseconds: 10), randomPositions);
+    timer = Timer.periodic(Duration(milliseconds: 100), randomPositions);
   }
 
   randomPositions(Timer timer) {
     var rng = Random(); 
     setState((){
-      x = (rng.nextInt(30) - 15) - rng.nextDouble();
-      y = (rng.nextInt(60) - 30) - rng.nextDouble();
-      z = (rng.nextInt(30) - 15) - rng.nextDouble();
+      x = (rng.nextInt(15) - 15).toDouble();
+      y = (rng.nextInt(15) - 15).toDouble();
+      z = (rng.nextInt(15) - 15).toDouble();
+      g = (rng.nextDouble() + 2);
+      hz = (rng.nextInt(25) + 600);
     });
   }
   
@@ -67,10 +71,11 @@ class _MyHomePageState extends State<MyHomePage> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.white,
           actions: <Widget>[
             // action button
             IconButton(
-              icon: Icon(Icons.play_arrow),
+              icon: Icon(Icons.play_arrow, color: Colors.black,),
               onPressed: (){
                 startWatch();
               }
@@ -83,20 +88,24 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
           centerTitle: true,
-          title: Text('SISMIC'),
+          title: Text(
+            'SISMIC', 
+            style: TextStyle(color: Colors.black),
+          ),
           bottom: TabBar(
+            unselectedLabelColor: Colors.black,
+            indicator: BoxDecoration(
+              color: Colors.grey
+            ),
             tabs: <Widget>[
               Tab(
                 text: "X : Y",
-                // icon: Icon(Icons.account_box),
               ),
               Tab(
                 text: "X : Z",
-                // icon: Icon(Icons.account_box),
               ),
               Tab(
                 text: "Z : Y",
-                // icon: Icon(Icons.account_box),
               ),
             ],
           ),
@@ -107,6 +116,8 @@ class _MyHomePageState extends State<MyHomePage> {
               room: RoomXY(),
               x: this.x,
               y: this.y,
+              g: this.g,
+              hz: this.hz,
             ),
             LevelXZ( 
               room: RoomXZ(),
@@ -120,6 +131,60 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ]
         ),
+        // body: DefaultTabController(
+        //   length: 3,
+        //   child: Column(
+        //     children: <Widget>[
+        //       Container(
+        //         constraints: BoxConstraints(maxHeight: 150.0),
+        //         child: Material(
+        //           color: Colors.white,
+                  
+        //           child: TabBar(
+        //             tabs: [
+        //               Tab(
+                        
+        //                 child: Container(
+                          
+        //                   child: Text(
+        //                     "X : Y"
+        //                   ),
+        //                 ),
+        //               ),
+        //               Tab(
+        //                 text: "X : Z",
+        //               ),
+        //               Tab(
+        //                 text: "Z : Y",
+        //               ),
+        //             ],
+        //           ),
+        //         ),
+        //       ),
+        //       Expanded(
+        //         child: TabBarView(
+        //           children: [
+        //             LevelXY( 
+        //               room: RoomXY(),
+        //               x: this.x,
+        //               y: this.y,
+        //             ),
+        //             LevelXZ( 
+        //               room: RoomXZ(),
+        //               x: this.x,
+        //               z: this.z,
+        //             ),
+        //             LevelZY( 
+        //               room: RoomZY(),
+        //               z: this.z,
+        //               y: this.y,
+        //             ),
+        //           ],
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
       ),
     );
   }

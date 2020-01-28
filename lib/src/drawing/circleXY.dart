@@ -9,19 +9,30 @@ class CircleXY extends CustomPainter{
   @override
   void paint(ui.Canvas canvas, ui.Size size ) {
     Paint paint = Paint();
-    paint.color = Colors.lightGreenAccent;
+    paint.color = Colors.lightGreenAccent[700];
     paint.style = PaintingStyle.stroke;
     paint.strokeWidth = size.width/35;
-
+    if(x >= 13 || x <= -13){
+      if(x > 13){
+        paint.color = Colors.red;
+      }else if(y != 0){
+        paint.color = Colors.red;
+      }
+    }
+    if(y >= 13 || y <= -13){
+      if(y > 13){
+        paint.color = Colors.red;
+      }else if(y != 0){
+        paint.color = Colors.red;
+      }
+    }
     for(int i=0; i<36; i++){
-      canvas.drawArc(Offset(30, 20)
+      canvas.drawArc(Offset(30, 35)
       & Size(350, 350), (-90.0 + i*10)*0.0174533, 8*0.0174533,
-          false, paint..color = paint.color);
+        false, paint..color = paint.color
+      );
     }
-    if(x > 20 || y > 22){
-      paint.color = Colors.red;
-    }
-    // print('x : $x // y : $y');
+    print('x : $x // y : $y');
     // canvas.drawCircle(Offset(205, 150), 180, paint);
   }
 

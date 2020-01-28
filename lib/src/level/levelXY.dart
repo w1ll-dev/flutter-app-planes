@@ -4,19 +4,22 @@ import 'package:levelApp/src/drawing/circleMachine.dart';
 import 'package:levelApp/src/drawing/circleXY.dart';
 import '../drawing/circleXY.dart';
 
-
 class RoomXY {}
 
 class LevelXY extends StatefulWidget {
   final RoomXY room;
   double x;
   double y;
+  double g;
+  int hz;
 
   LevelXY({
     @required 
     this.room, 
     this.x, 
-    this.y
+    this.y,
+    this.g,
+    this.hz,
   }) : assert(room != null);
 
   @override
@@ -26,6 +29,7 @@ class LevelXY extends StatefulWidget {
 class _LevelXYState extends State<LevelXY> {
   double x = 0.0;
   double y = 0.0;
+
 
   @override
   Widget build(BuildContext context) {
@@ -47,19 +51,6 @@ class _LevelXYState extends State<LevelXY> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             Flexible(
-              flex: 2,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "X = ${(widget.x).toStringAsPrecision(2)}\nY = ${(widget.y).toStringAsPrecision(2)}\nG = 2.4",
-                    style: TextStyle(fontSize: 20,),
-                  ),
-                ],
-              ),
-            ),
-            Flexible(
               flex: 6,
               child: Stack(
                 alignment: Alignment(0.0, 0.0),
@@ -70,7 +61,7 @@ class _LevelXYState extends State<LevelXY> {
                   CustomPaint(
                     painter: CircleXY(
                       x: widget.x,
-                      y: widget.y
+                      y: widget.y,
                     ),
                     child: Container(),
                   ),
@@ -85,7 +76,7 @@ class _LevelXYState extends State<LevelXY> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            "2,4",
+                            "${(widget.g).toStringAsPrecision(2)}",
                             style: TextStyle(
                               fontFamily: 'Quebec Black', 
                               fontSize: 40.0
@@ -116,7 +107,7 @@ class _LevelXYState extends State<LevelXY> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        "1125",
+                        "${widget.hz}",
                         style: TextStyle(
                           fontFamily: 'Quebec Black',
                           fontSize: 40.0

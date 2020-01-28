@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import '../drawing/circleMachine.dart';
 import 'package:levelApp/src/drawing/circleXZ.dart';
 
 class RoomXZ {}
@@ -39,23 +40,86 @@ class _LevelXZState extends State<LevelXZ> {
 
           });
         },
-        child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              CustomPaint(
-                painter: CircleXZ(
-                  x: widget.x,
-                  z: widget.z
-                ),
-                child: Container(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Flexible(
+              flex: 6,
+              child: Stack(
+                alignment: Alignment(0.0, 0.0),
+                children: <Widget>[
+                  Image(
+                    image: AssetImage('assets/images/FRONT.png'),
+                  ),
+                  CustomPaint(
+                    painter: CircleXZ(
+                      x: widget.x,
+                      z: widget.z
+                    ),
+                    child: Container(),
+                  ),
+                  Stack(
+                    alignment: Alignment(0.0, 0.0),
+                    children: <Widget>[
+                      Marker(
+                        x: widget.x,
+                        z: widget.z,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "2,4",
+                            style: TextStyle(
+                              fontFamily: 'Quebec Black', 
+                              fontSize: 40.0
+                            ),
+                          ),
+                          Text(
+                            "G",
+                            style: TextStyle(
+                              fontFamily: 'Quebec Black',
+                              color: Colors.lightBlue, 
+                              fontSize: 40.0
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],  
+              ), 
+            ),
+            Flexible(
+              flex: 2,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "1125",
+                        style: TextStyle(
+                          fontFamily: 'Quebec Black',
+                          fontSize: 40.0
+                        ),
+                      ),
+                      Text(
+                        "Hz",
+                        style: TextStyle(
+                          color: Colors.lightBlue, 
+                          fontFamily: 'Quebec Black', 
+                          fontSize: 40.0
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              Marker(
-                x: widget.x,
-                z: widget.z,
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -73,6 +137,10 @@ class Marker extends StatelessWidget {
     print("x: $x, z: $z");
     return Transform(
       transform: Matrix4.translationValues(x, z, 0.0), 
-      child: CircleAvatar(radius: 150, backgroundColor: Colors.lightGreen,));
+      child: CustomPaint(
+        painter: CircleMachine(),
+        child: Container(),
+      )
+    );
   }
 }
