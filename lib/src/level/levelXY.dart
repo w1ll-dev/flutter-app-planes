@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:levelApp/src/drawing/circleMachine.dart';
 import 'package:levelApp/src/drawing/circleXY.dart';
 import '../drawing/circleXY.dart';
+import 'package:dotted_border/dotted_border.dart';
 
 class RoomXY {}
 
@@ -105,15 +106,15 @@ class _LevelXYState extends State<LevelXY> {
               flex: 2,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Flexible(
                     flex: 2,
                     child: Container(
-                      margin: const EdgeInsets.only(right: 20.0),
+                      margin: const EdgeInsets.only(right: 20.0,),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
                           Text(
                             "${widget.hzMax}",
@@ -136,34 +137,39 @@ class _LevelXYState extends State<LevelXY> {
                   ),
                   Flexible(
                     flex: 6,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          "${widget.hz}",
-                          style: TextStyle(
-                            fontFamily: 'Quebec Black',
-                            fontSize: 40.0
+                    child: DottedBorder(
+                      color: Colors.grey,
+                      strokeWidth: 1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        
+                        children: <Widget>[
+                          Text(
+                            "${widget.hz}",
+                            style: TextStyle(
+                              fontFamily: 'Quebec Black',
+                              fontSize: 40.0
+                            ),
                           ),
-                        ),
-                        Text(
-                          "Hz",
-                          style: TextStyle(
-                            color: Colors.lightBlue, 
-                            fontFamily: 'Quebec Black', 
-                            fontSize: 40.0
+                          Text(
+                            "Hz",
+                            style: TextStyle(
+                              color: Colors.lightBlue, 
+                              fontFamily: 'Quebec Black', 
+                              fontSize: 40.0
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   Flexible(
                     flex: 2,
                     child: Container(
-                      margin: const EdgeInsets.only(right: 20.0),
+                      margin: const EdgeInsets.only(right: 20.0,),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
                             "${widget.hzMin}",
