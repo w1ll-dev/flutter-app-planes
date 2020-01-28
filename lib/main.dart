@@ -36,6 +36,8 @@ class _MyHomePageState extends State<MyHomePage> {
   double z = 0.0;
   double g = 2.4;
   int hz = 600;
+  int hzMax = 600;
+  int hzMin = 600;
 
   Stopwatch watch = Stopwatch();
   Timer timer;
@@ -49,9 +51,25 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  setHzMax(value){
+    if(value > this.hzMax){
+      setState(() {
+        hzMax = value;
+      });
+    }
+  }
+
+  setHzMin(value){
+    if(value < this.hzMin){
+      setState(() {
+        hzMin = value;
+      });
+    }
+  }
+
   startWatch() {
     watch.start();
-    timer = Timer.periodic(Duration(milliseconds: 100), randomPositions);
+    timer = Timer.periodic(Duration(milliseconds: 800), randomPositions);
   }
 
   randomPositions(Timer timer) {
@@ -62,6 +80,8 @@ class _MyHomePageState extends State<MyHomePage> {
       z = (rng.nextInt(15) - 15).toDouble();
       g = (rng.nextDouble() + 2);
       hz = (rng.nextInt(25) + 600);
+      setHzMax(hz);
+      setHzMin(hz);
     });
   }
   
@@ -118,6 +138,8 @@ class _MyHomePageState extends State<MyHomePage> {
               y: this.y,
               g: this.g,
               hz: this.hz,
+              hzMax: this.hzMax,
+              hzMin: this.hzMin,
             ),
             LevelXZ( 
               room: RoomXZ(),

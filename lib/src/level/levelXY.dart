@@ -12,6 +12,8 @@ class LevelXY extends StatefulWidget {
   double y;
   double g;
   int hz;
+  int hzMax;
+  int hzMin;
 
   LevelXY({
     @required 
@@ -20,6 +22,8 @@ class LevelXY extends StatefulWidget {
     this.y,
     this.g,
     this.hz,
+    this.hzMax,
+    this.hzMin
   }) : assert(room != null);
 
   @override
@@ -103,25 +107,82 @@ class _LevelXYState extends State<LevelXY> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "${widget.hz}",
-                        style: TextStyle(
-                          fontFamily: 'Quebec Black',
-                          fontSize: 40.0
-                        ),
+                  Flexible(
+                    flex: 2,
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          Text(
+                            "${widget.hzMax}",
+                            style: TextStyle(
+                              fontFamily: 'Quebec Black',
+                              fontSize: 15.0
+                            ),
+                          ),
+                          Text(
+                            "Hz",
+                            style: TextStyle(
+                              color: Colors.lightBlue, 
+                              fontFamily: 'Quebec Black', 
+                              fontSize: 15.0
+                            ),
+                          ),
+                        ],
                       ),
-                      Text(
-                        "Hz",
-                        style: TextStyle(
-                          color: Colors.lightBlue, 
-                          fontFamily: 'Quebec Black', 
-                          fontSize: 40.0
+                    ),
+                  ),
+                  Flexible(
+                    flex: 6,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "${widget.hz}",
+                          style: TextStyle(
+                            fontFamily: 'Quebec Black',
+                            fontSize: 40.0
+                          ),
                         ),
+                        Text(
+                          "Hz",
+                          style: TextStyle(
+                            color: Colors.lightBlue, 
+                            fontFamily: 'Quebec Black', 
+                            fontSize: 40.0
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Flexible(
+                    flex: 2,
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          Text(
+                            "${widget.hzMin}",
+                            style: TextStyle(
+                              fontFamily: 'Quebec Black',
+                              fontSize: 15.0
+                            ),
+                          ),
+                          Text(
+                            "Hz",
+                            style: TextStyle(
+                              color: Colors.lightBlue, 
+                              fontFamily: 'Quebec Black', 
+                              fontSize: 15.0
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ],
               ),
