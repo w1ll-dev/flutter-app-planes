@@ -9,9 +9,16 @@ class LevelXZ extends StatefulWidget {
   final RoomXZ room;
   double x = 0.0;
   double z = 0.0;
+  double g;
+  int hz;
 
   LevelXZ({
-    @required this.room, this.x, this.z
+    @required  
+    this.room, 
+    this.x, 
+    this.z,
+    this.g,
+    this.hz,
   }) : assert(room != null);
 
   @override
@@ -21,6 +28,7 @@ class LevelXZ extends StatefulWidget {
 class _LevelXZState extends State<LevelXZ> {
   double x = 0.0; 
   double z = 0.0;
+
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +77,7 @@ class _LevelXZState extends State<LevelXZ> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            "2,4",
+                            "${(widget.g).toStringAsPrecision(2)}",
                             style: TextStyle(
                               fontFamily: 'Quebec Black', 
                               fontSize: 40.0
@@ -100,7 +108,7 @@ class _LevelXZState extends State<LevelXZ> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        "1125",
+                        "${widget.hz}",
                         style: TextStyle(
                           fontFamily: 'Quebec Black',
                           fontSize: 40.0

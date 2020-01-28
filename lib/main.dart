@@ -123,11 +123,15 @@ class _MyHomePageState extends State<MyHomePage> {
               room: RoomXZ(),
               x: this.x,
               z: this.z,
+              g: this.g,
+              hz: this.hz,
             ),
             LevelZY( 
               room: RoomZY(),
               z: this.z,
               y: this.y,
+              g: this.g,
+              hz: this.hz,
             ),
           ]
         ),

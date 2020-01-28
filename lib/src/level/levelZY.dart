@@ -9,12 +9,16 @@ class LevelZY extends StatefulWidget {
   final RoomZY room;
   double z;
   double y;
+  double g;
+  int hz;
 
   LevelZY({
     @required 
     this.room, 
     this.z, 
-    this.y
+    this.y,
+    this.g,
+    this.hz,
   }) : assert(room != null);
 
   @override
@@ -70,7 +74,7 @@ class _LevelZYState extends State<LevelZY> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            "2,4",
+                            "${(widget.g).toStringAsPrecision(2)}",
                             style: TextStyle(
                               fontFamily: 'Quebec Black', 
                               fontSize: 40.0
@@ -101,7 +105,7 @@ class _LevelZYState extends State<LevelZY> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        "1125",
+                        "${widget.hz}",
                         style: TextStyle(
                           fontFamily: 'Quebec Black',
                           fontSize: 40.0
