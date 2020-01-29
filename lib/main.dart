@@ -25,29 +25,103 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   final String title;
+  
   MyHomePage({Key key, this.title,}) : super(key: key);
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Stopwatch watch = Stopwatch();
+  Timer timer;
+
   double x = 0.0;
   double y = 0.0;
   double z = 0.0;
   double g = 2.4;
   int hz = 600;
   int hzMax = 600;
-  int hzMin = 600;
+  int hzMin = 550;
+  int i = 0;
 
-  Stopwatch watch = Stopwatch();
-  Timer timer;
+  randomPositions(Timer timer) {
+    var rng = Random();
+    switch (this.i) {
+      case 0:
+        setState(() {
+          x = (15).toDouble();
+          y = (0 ).toDouble();
+          z = (15).toDouble();
+          g = (rng.nextDouble() + 2);
+          hz = (rng.nextInt(160) + 500);
+          setHzMax(hz);
+          setHzMin(hz);
+        });
+        break;
+      case 1:
+        setState(() {
+          x = (0).toDouble();
+          y = (15).toDouble();
+          z = (0).toDouble();
+          g = (rng.nextDouble() + 2);
+          hz = (rng.nextInt(160) + 500);
+          setHzMax(hz);
+          setHzMin(hz);
+        });
+        break;
+      case 0:
+        setState(() {
+          x = (-15).toDouble();
+          y = (0 ).toDouble();
+          z = (-15).toDouble();
+          g = (rng.nextDouble() + 2);
+          hz = (rng.nextInt(160) + 500);
+          setHzMax(hz);
+          setHzMin(hz);
+        });
+        break;
+      case 0:
+        setState(() {
+          x = (0).toDouble();
+          y = (-15).toDouble();
+          z = (0).toDouble();
+          g = (rng.nextDouble() + 2);
+          hz = (rng.nextInt(160) + 500);
+          setHzMax(hz);
+          setHzMin(hz);
+        });
+        break;
+      default:
+    }
+    if(i == 4){
+      setState(() {
+        i = 0;
+      });
+    }else{
+      i++;
+    }
+  }
+  //StopWatch Functions
+  startWatch() {
+    watch.start();
+    timer = Timer.periodic(Duration(milliseconds: 800), randomPositions);
+  }
+
+  resetWatch(){
+    initPosition();
+    watch.reset();
+  }
   
-  stopWatch(){
-    watch.stop();
+  initPosition(){
     setState(() {
       x = 0.0;
       y = 0.0;
       z = 0.0;
+      g = 2.4;
+      hz = 600;
+      hzMax = 600;
+      hzMin = 600;
     });
   }
 
@@ -67,24 +141,6 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-  startWatch() {
-    watch.start();
-    timer = Timer.periodic(Duration(milliseconds: 800), randomPositions);
-  }
-
-  randomPositions(Timer timer) {
-    var rng = Random(); 
-    setState((){
-      x = (rng.nextInt(15) - 15).toDouble();
-      y = (rng.nextInt(15) - 15).toDouble();
-      z = (rng.nextInt(15) - 15).toDouble();
-      g = (rng.nextDouble() + 2);
-      hz = (rng.nextInt(25) + 600);
-      setHzMax(hz);
-      setHzMin(hz);
-    });
-  }
-  
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -96,15 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
             // action button
             IconButton(
               icon: Icon(Icons.play_arrow, color: Colors.black,),
-              onPressed: (){
-                startWatch();
-              }
-            ),
-            IconButton(
-              icon: Icon(Icons.pause),
-              onPressed:(){
-                stopWatch();
-              }
+              onPressed: startWatch
             ),
           ],
           centerTitle: true,
@@ -161,60 +209,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ]
         ),
-        // body: DefaultTabController(
-        //   length: 3,
-        //   child: Column(
-        //     children: <Widget>[
-        //       Container(
-        //         constraints: BoxConstraints(maxHeight: 150.0),
-        //         child: Material(
-        //           color: Colors.white,
-                  
-        //           child: TabBar(
-        //             tabs: [
-        //               Tab(
-                        
-        //                 child: Container(
-                          
-        //                   child: Text(
-        //                     "X : Y"
-        //                   ),
-        //                 ),
-        //               ),
-        //               Tab(
-        //                 text: "X : Z",
-        //               ),
-        //               Tab(
-        //                 text: "Z : Y",
-        //               ),
-        //             ],
-        //           ),
-        //         ),
-        //       ),
-        //       Expanded(
-        //         child: TabBarView(
-        //           children: [
-        //             LevelXY( 
-        //               room: RoomXY(),
-        //               x: this.x,
-        //               y: this.y,
-        //             ),
-        //             LevelXZ( 
-        //               room: RoomXZ(),
-        //               x: this.x,
-        //               z: this.z,
-        //             ),
-        //             LevelZY( 
-        //               room: RoomZY(),
-        //               z: this.z,
-        //               y: this.y,
-        //             ),
-        //           ],
-        //         ),
-        //       ),
-        //     ],
-        //   ),
-        // ),
       ),
     );
   }

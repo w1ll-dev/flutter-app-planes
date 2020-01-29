@@ -1,9 +1,10 @@
+import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:levelApp/src/drawing/circleMachine.dart';
 import 'package:levelApp/src/drawing/circleXY.dart';
 import '../drawing/circleXY.dart';
-import 'package:dotted_border/dotted_border.dart';
+import '../graphic/graphicXY.dart';
 
 class RoomXY {}
 
@@ -108,90 +109,93 @@ class _LevelXYState extends State<LevelXY> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Flexible(
-                    flex: 2,
-                    child: Container(
-                      margin: const EdgeInsets.only(right: 20.0,),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: <Widget>[
-                          Text(
-                            "${widget.hzMax}",
-                            style: TextStyle(
-                              fontFamily: 'Quebec Black',
-                              fontSize: 15.0
+                  Container(
+                    child: Flexible(
+                      flex: 2,
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 20.0,),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: <Widget>[
+                            Text(
+                              "${widget.hzMax}",
+                              style: TextStyle(
+                                fontFamily: 'Quebec Black',
+                                fontSize: 15.0
+                              ),
                             ),
-                          ),
-                          Text(
-                            "Hz",
-                            style: TextStyle(
-                              color: Colors.lightBlue, 
-                              fontFamily: 'Quebec Black', 
-                              fontSize: 15.0
+                            Text(
+                              "Hz",
+                              style: TextStyle(
+                                color: Colors.lightBlue, 
+                                fontFamily: 'Quebec Black', 
+                                fontSize: 15.0
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                  Flexible(
-                    flex: 6,
-                    child: DottedBorder(
-                      dashPattern: [3],
-                      borderType: BorderType.Rect,
-                      color: Colors.grey,
-                      strokeWidth: 1,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        
-                        children: <Widget>[
-                          Text(
-                            "${widget.hz}",
-                            style: TextStyle(
-                              fontFamily: 'Quebec Black',
-                              fontSize: 40.0
+                  Stack(
+                    alignment: Alignment(0, 0),
+                    children: <Widget>[
+                      GraphicXY(),
+                      Flexible(
+                        flex: 6,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              "${widget.hz}",
+                              style: TextStyle(
+                                fontFamily: 'Quebec Black',
+                                fontSize: 40.0
+                              ),
                             ),
-                          ),
-                          Text(
-                            "Hz",
-                            style: TextStyle(
-                              color: Colors.lightBlue, 
-                              fontFamily: 'Quebec Black', 
-                              fontSize: 40.0
+                            Text(
+                              "Hz",
+                              style: TextStyle(
+                                color: Colors.lightBlue, 
+                                fontFamily: 'Quebec Black', 
+                                fontSize: 40.0
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    child: Flexible(
+                      flex: 2,
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 20.0,),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              "${widget.hzMin}",
+                              style: TextStyle(
+                                fontFamily: 'Quebec Black',
+                                fontSize: 15.0
+                              ),
+                            ),
+                            Text(
+                              "Hz",
+                              style: TextStyle(
+                                color: Colors.lightBlue, 
+                                fontFamily: 'Quebec Black', 
+                                fontSize: 15.0
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  Flexible(
-                    flex: 2,
-                    child: Container(
-                      margin: const EdgeInsets.only(right: 20.0,),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            "${widget.hzMin}",
-                            style: TextStyle(
-                              fontFamily: 'Quebec Black',
-                              fontSize: 15.0
-                            ),
-                          ),
-                          Text(
-                            "Hz",
-                            style: TextStyle(
-                              color: Colors.lightBlue, 
-                              fontFamily: 'Quebec Black', 
-                              fontSize: 15.0
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  )
                 ],
               ),
             ),

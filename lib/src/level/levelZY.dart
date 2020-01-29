@@ -106,43 +106,40 @@ class _LevelZYState extends State<LevelZY> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Flexible(
-                    flex: 2,
-                    child: Container(
-                      margin: const EdgeInsets.only(right: 20.0,),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: <Widget>[
-                          Text(
-                            "${widget.hzMax}",
-                            style: TextStyle(
-                              fontFamily: 'Quebec Black',
-                              fontSize: 15.0
+                  Container(
+                    child: Flexible(
+                      flex: 2,
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 20.0,),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: <Widget>[
+                            Text(
+                              "${widget.hzMax}",
+                              style: TextStyle(
+                                fontFamily: 'Quebec Black',
+                                fontSize: 15.0
+                              ),
                             ),
-                          ),
-                          Text(
-                            "Hz",
-                            style: TextStyle(
-                              color: Colors.lightBlue, 
-                              fontFamily: 'Quebec Black', 
-                              fontSize: 15.0
+                            Text(
+                              "Hz",
+                              style: TextStyle(
+                                color: Colors.lightBlue, 
+                                fontFamily: 'Quebec Black', 
+                                fontSize: 15.0
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                  Flexible(
-                    flex: 6,
-                    child: DottedBorder(
-                      dashPattern: [3],
-                      borderType: BorderType.Rect,
-                      color: Colors.grey,
-                      strokeWidth: 1,
+                  Container(
+                    child: Flexible(
+                      flex: 8,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        
                         children: <Widget>[
                           Text(
                             "${widget.hz}",
@@ -163,65 +160,38 @@ class _LevelZYState extends State<LevelZY> {
                       ),
                     ),
                   ),
-                  Flexible(
-                    flex: 2,
-                    child: Container(
-                      margin: const EdgeInsets.only(right: 20.0,),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            "${widget.hzMin}",
-                            style: TextStyle(
-                              fontFamily: 'Quebec Black',
-                              fontSize: 15.0
+                  Container(
+                    child: Flexible(
+                      flex: 2,
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 20.0,),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              "${widget.hzMin}",
+                              style: TextStyle(
+                                fontFamily: 'Quebec Black',
+                                fontSize: 15.0
+                              ),
                             ),
-                          ),
-                          Text(
-                            "Hz",
-                            style: TextStyle(
-                              color: Colors.lightBlue, 
-                              fontFamily: 'Quebec Black', 
-                              fontSize: 15.0
+                            Text(
+                              "Hz",
+                              style: TextStyle(
+                                color: Colors.lightBlue, 
+                                fontFamily: 'Quebec Black', 
+                                fontSize: 15.0
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ],
               ),
             ),
-            // Flexible(
-            //   flex: 2,
-            //   child: Column(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     crossAxisAlignment: CrossAxisAlignment.center,
-            //     children: <Widget>[
-            //       Row(
-            //         mainAxisAlignment: MainAxisAlignment.center,
-            //         children: <Widget>[
-            //           Text(
-            //             "${widget.hz}",
-            //             style: TextStyle(
-            //               fontFamily: 'Quebec Black',
-            //               fontSize: 40.0
-            //             ),
-            //           ),
-            //           Text(
-            //             "Hz",
-            //             style: TextStyle(
-            //               color: Colors.lightBlue, 
-            //               fontFamily: 'Quebec Black', 
-            //               fontSize: 40.0
-            //             ),
-            //           ),
-            //         ],
-            //       ),
-            //     ],
-            //   ),
-            // ),
           ],
         ),
       ),
