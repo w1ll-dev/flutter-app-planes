@@ -5,25 +5,27 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class GraphicXY extends StatefulWidget {
+  Stopwatch watch = Stopwatch();
   Timer timer;
-  GraphicXY({this.timer});
+  
+  GraphicXY({this.timer, this.watch});
 
   @override
   _GraphicXYState createState() => _GraphicXYState();
 }
 
 class _GraphicXYState extends State<GraphicXY> {
-
+  Stopwatch watch = Stopwatch();
+  Timer timer;
   
 
   @override
   Widget build(BuildContext context) {
 
-    widget.timer = Timer(Duration(milliseconds: 1000), () {
-      setState(() {
-        getDynamicData();
-      });
-    });
+    startWatch() {
+      watch.start();
+      timer = Timer.periodic(Duration(milliseconds: 800), getDynamicData());
+    }
 
     return Container(
       child: Column(
@@ -32,41 +34,24 @@ class _GraphicXYState extends State<GraphicXY> {
           Container(
             height: 100,
             child: SfCartesianChart(
-              trackballBehavior: TrackballBehavior(
-                enable: false,
-                activationMode: ActivationMode.singleTap
-              ),
+              
               primaryXAxis: NumericAxis( 
                 isVisible: false,
               ), 
 
-              primaryYAxis: NumericAxis( 
+              primaryYAxis: NumericAxis(
+                minimum: 18,
+                maximum: 24, 
                 //Hide the gridlines of y-axis 
                 majorGridLines: MajorGridLines(width: 0), 
                 //Hide the axis line of y-axis 
                 axisLine: AxisLine(width: 0),
-                interval: 5, 
+                interval: 1,
               ),
-
-              legend: Legend(
-                isVisible: false
-              ),
-
-              tooltipBehavior: TooltipBehavior(
-                // borderColor: Colors.transparent,
-                enable: false,
-                activationMode: ActivationMode.longPress
-              ),
-
-              zoomPanBehavior: ZoomPanBehavior(
-                enableDoubleTapZooming: false,
-                enablePanning: false,
-                zoomMode: ZoomMode.x
-              ),
-
               series: <ChartSeries>[
                 
                 LineSeries<SalesData,double>(
+                  animationDuration: 0,
                   color: Colors.grey[300],
                   dataSource: getDynamicData(),
                   
@@ -93,14 +78,17 @@ int j = 0;
 
 dynamic getDynamicData() {
   j++;
-  double value = 0;
+  double value = 22;
   Random rand = Random();
-  double k = (rand.nextInt(500).toDouble());
+  double k = (rand.nextInt(4).toDouble());
 
-  if (k > 250) {
-    value += rand.nextDouble();
+  if (k > 20) {
+    value += k;
   } else {
-    value -= rand.nextDouble();
+    value -= k;
+  }
+  if (j > 30) {
+    dynamicData.removeAt(0);
   }
 
   dynamicData.add(SalesData(j.toDouble(), value));

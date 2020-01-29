@@ -40,67 +40,23 @@ class _MyHomePageState extends State<MyHomePage> {
   double y = 0.0;
   double z = 0.0;
   double g = 2.4;
-  int hz = 600;
-  int hzMax = 600;
-  int hzMin = 550;
+  int hz = 21;
+  int hzMax = 21;
+  int hzMin = 21;
   int i = 0;
 
   randomPositions(Timer timer) {
     var rng = Random();
-    switch (this.i) {
-      case 0:
-        setState(() {
-          x = (15).toDouble();
-          y = (0 ).toDouble();
-          z = (15).toDouble();
-          g = (rng.nextDouble() + 2);
-          hz = (rng.nextInt(160) + 500);
-          setHzMax(hz);
-          setHzMin(hz);
-        });
-        break;
-      case 1:
-        setState(() {
-          x = (0).toDouble();
-          y = (15).toDouble();
-          z = (0).toDouble();
-          g = (rng.nextDouble() + 2);
-          hz = (rng.nextInt(160) + 500);
-          setHzMax(hz);
-          setHzMin(hz);
-        });
-        break;
-      case 0:
-        setState(() {
-          x = (-15).toDouble();
-          y = (0 ).toDouble();
-          z = (-15).toDouble();
-          g = (rng.nextDouble() + 2);
-          hz = (rng.nextInt(160) + 500);
-          setHzMax(hz);
-          setHzMin(hz);
-        });
-        break;
-      case 0:
-        setState(() {
-          x = (0).toDouble();
-          y = (-15).toDouble();
-          z = (0).toDouble();
-          g = (rng.nextDouble() + 2);
-          hz = (rng.nextInt(160) + 500);
-          setHzMax(hz);
-          setHzMin(hz);
-        });
-        break;
-      default:
-    }
-    if(i == 4){
-      setState(() {
-        i = 0;
-      });
-    }else{
-      i++;
-    }
+    setState(() {
+      x = rng.nextInt(20).toDouble();
+      y = rng.nextInt(20).toDouble();
+      z = rng.nextInt(20).toDouble();
+      g = (rng.nextDouble() + 2);
+      hz = (rng.nextInt(4) + 20);
+      setHzMax(hz);
+      setHzMin(hz);
+    });
+        
   }
   //StopWatch Functions
   startWatch() {
