@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:levelApp/src/graphic/graphicZY.dart';
 import '../drawing/circleMachine.dart';
 import '../drawing/circleZY.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -135,30 +136,36 @@ class _LevelZYState extends State<LevelZY> {
                       ),
                     ),
                   ),
-                  Container(
-                    child: Flexible(
-                      flex: 8,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            "${widget.hz}",
-                            style: TextStyle(
-                              fontFamily: 'Quebec Black',
-                              fontSize: 40.0
-                            ),
+                  Stack(
+                    alignment: Alignment(0, 0),
+                    children: <Widget>[
+                      GraphicZY(),
+                      Container(
+                        child: Flexible(
+                          flex: 6,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                "${widget.hz}",
+                                style: TextStyle(
+                                  fontFamily: 'Quebec Black',
+                                  fontSize: 40.0
+                                ),
+                              ),
+                              Text(
+                                "Hz",
+                                style: TextStyle(
+                                  color: Colors.lightBlue, 
+                                  fontFamily: 'Quebec Black', 
+                                  fontSize: 40.0
+                                ),
+                              ),
+                            ],
                           ),
-                          Text(
-                            "Hz",
-                            style: TextStyle(
-                              color: Colors.lightBlue, 
-                              fontFamily: 'Quebec Black', 
-                              fontSize: 40.0
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                   Container(
                     child: Flexible(

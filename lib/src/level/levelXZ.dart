@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:levelApp/src/graphic/graphicXZ.dart';
 import '../drawing/circleMachine.dart';
 import 'package:levelApp/src/drawing/circleXZ.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -138,31 +139,37 @@ class _LevelXZState extends State<LevelXZ> {
                       ),
                     ),
                   ),
-                  Container(
-                    child: Flexible(
-                      flex: 6,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        
-                        children: <Widget>[
-                          Text(
-                            "${widget.hz}",
-                            style: TextStyle(
-                              fontFamily: 'Quebec Black',
-                              fontSize: 40.0
-                            ),
+                  Stack(
+                    alignment: Alignment(0, 0),
+                    children: <Widget>[
+                      GraphicXZ(),
+                      Container(
+                        child: Flexible(
+                          flex: 6,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            
+                            children: <Widget>[
+                              Text(
+                                "${widget.hz}",
+                                style: TextStyle(
+                                  fontFamily: 'Quebec Black',
+                                  fontSize: 40.0
+                                ),
+                              ),
+                              Text(
+                                "Hz",
+                                style: TextStyle(
+                                  color: Colors.lightBlue, 
+                                  fontFamily: 'Quebec Black', 
+                                  fontSize: 40.0
+                                ),
+                              ),
+                            ],
                           ),
-                          Text(
-                            "Hz",
-                            style: TextStyle(
-                              color: Colors.lightBlue, 
-                              fontFamily: 'Quebec Black', 
-                              fontSize: 40.0
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                   Container(
                     child: Flexible(
@@ -196,35 +203,6 @@ class _LevelXZState extends State<LevelXZ> {
                 ],
               ),
             ),
-            // Flexible(
-            //   flex: 2,
-            //   child: Column(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     crossAxisAlignment: CrossAxisAlignment.center,
-            //     children: <Widget>[
-            //       Row(
-            //         mainAxisAlignment: MainAxisAlignment.center,
-            //         children: <Widget>[
-            //           Text(
-            //             "${widget.hz}",
-            //             style: TextStyle(
-            //               fontFamily: 'Quebec Black',
-            //               fontSize: 40.0
-            //             ),
-            //           ),
-            //           Text(
-            //             "Hz",
-            //             style: TextStyle(
-            //               color: Colors.lightBlue, 
-            //               fontFamily: 'Quebec Black', 
-            //               fontSize: 40.0
-            //             ),
-            //           ),
-            //         ],
-            //       ),
-            //     ],
-            //   ),
-            // ),
           ],
         ),
       ),

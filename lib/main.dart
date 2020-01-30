@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
   //StopWatch Functions
   startWatch() {
     watch.start();
-    timer = Timer.periodic(Duration(milliseconds: 800), randomPositions);
+    timer = Timer.periodic(Duration(milliseconds: 100), randomPositions);
   }
 
   resetWatch(){

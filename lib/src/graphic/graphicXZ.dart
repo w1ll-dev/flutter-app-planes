@@ -4,18 +4,18 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class GraphicXY extends StatefulWidget {
+class GraphicXZ extends StatefulWidget {
   Stopwatch watch = Stopwatch();
   Timer timer;
   
-  GraphicXY({this.timer, this.watch
+  GraphicXZ({this.timer, this.watch
   });
 
   @override
-  _GraphicXYState createState() => _GraphicXYState();
+  _GraphicXZState createState() => _GraphicXZState();
 }
 
-class _GraphicXYState extends State<GraphicXY> {
+class _GraphicXZState extends State<GraphicXZ> {
   Stopwatch watch = Stopwatch();
   Timer timer;
   
