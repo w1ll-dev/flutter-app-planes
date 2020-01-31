@@ -32,7 +32,6 @@ class CircleXZ extends CustomPainter{
         false, paint..color = paint.color
       );
     }
-    print('x : $x // y : $z');
   }
 
   @override

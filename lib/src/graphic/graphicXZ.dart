@@ -6,12 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class GraphicXZ extends StatefulWidget {
-  // Stopwatch watch = Stopwatch();
-  // Timer timer;
-  
-  // GraphicXZ({this.timer, this.watch
-  // });
-
   @override
   _GraphicXZState createState() => _GraphicXZState();
 }

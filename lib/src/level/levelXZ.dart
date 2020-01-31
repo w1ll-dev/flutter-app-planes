@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:levelApp/src/graphic/graphicXZ.dart';
+import 'package:levelApp/src/graphic/graphicXY.dart';
 import '../drawing/circleMachine.dart';
 import 'package:levelApp/src/drawing/circleXZ.dart';
 
@@ -106,84 +106,50 @@ class _LevelXZState extends State<LevelXZ> {
             Flexible(
               flex: 2,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Container(
-                    child: Flexible(
-                      flex: 2,
-                      child: Container(
-                        margin: const EdgeInsets.only(right: 20.0,),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: <Widget>[
-                            Text(
-                              "${widget.hzMax}",
-                              style: TextStyle(
-                                fontFamily: 'Quebec Black',
-                                fontSize: 15.0
-                              ),
+                  Flexible(
+                    flex: 1,
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 20.0,),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: <Widget>[
+                          Text(
+                            "${widget.hzMax}",
+                            style: TextStyle(
+                              fontFamily: 'Quebec Black',
+                              fontSize: 15.0
                             ),
-                            Text(
-                              "Hz",
-                              style: TextStyle(
-                                color: Colors.lightBlue, 
-                                fontFamily: 'Quebec Black', 
-                                fontSize: 15.0
-                              ),
+                          ),
+                          Text(
+                            "Hz",
+                            style: TextStyle(
+                              color: Colors.lightBlue, 
+                              fontFamily: 'Quebec Black', 
+                              fontSize: 15.0
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                  Stack(
-                    alignment: Alignment(0, 0),
-                    children: <Widget>[
-                      GraphicXZ(),
-                      Container(
-                        child: Flexible(
-                          flex: 6,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            
-                            children: <Widget>[
-                              Text(
-                                "${widget.hz}",
-                                style: TextStyle(
-                                  fontFamily: 'Quebec Black',
-                                  fontSize: 40.0
-                                ),
-                              ),
-                              Text(
-                                "Hz",
-                                style: TextStyle(
-                                  color: Colors.lightBlue, 
-                                  fontFamily: 'Quebec Black', 
-                                  fontSize: 40.0
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    child: Flexible(
-                      flex: 2,
-                      child: Container(
-                        margin: const EdgeInsets.only(right: 20.0,),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                  Flexible(
+                    flex: 6,
+                    child: Stack(
+                      alignment: Alignment(0, 0),
+                      children: <Widget>[
+                        GraphicXY(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              "${widget.hzMin}",
+                              "${widget.hz}",
                               style: TextStyle(
                                 fontFamily: 'Quebec Black',
-                                fontSize: 15.0
+                                fontSize: 40.0
                               ),
                             ),
                             Text(
@@ -191,13 +157,41 @@ class _LevelXZState extends State<LevelXZ> {
                               style: TextStyle(
                                 color: Colors.lightBlue, 
                                 fontFamily: 'Quebec Black', 
-                                fontSize: 15.0
+                                fontSize: 40.0
                               ),
                             ),
                           ],
                         ),
+                        
+                      ]
+                    ),
+                  ),
+                  Flexible(
+                    flex: 1,
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 20.0,),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            "${widget.hzMin}",
+                            style: TextStyle(
+                              fontFamily: 'Quebec Black',
+                              fontSize: 15.0
+                            ),
+                          ),
+                          Text(
+                            "Hz",
+                            style: TextStyle(
+                              color: Colors.lightBlue, 
+                              fontFamily: 'Quebec Black', 
+                              fontSize: 15.0
+                            ),
+                          ),
+                        ],
                       ),
-                  ), 
+                    ),
                   ),
                 ],
               ),

@@ -5,12 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class GraphicXY extends StatefulWidget {
-  // Stopwatch watch = Stopwatch();
-  // Timer timer;
-  
-  // GraphicXY({this.timer, this.watch
-  // });
-
   @override
   _GraphicXYState createState() => _GraphicXYState();
 }

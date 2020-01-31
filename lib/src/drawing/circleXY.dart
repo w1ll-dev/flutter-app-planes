@@ -32,8 +32,6 @@ class CircleXY extends CustomPainter{
         false, paint..color = paint.color
       );
     }
-    print('x : $x // y : $y');
-    // canvas.drawCircle(Offset(205, 150), 180, paint);
   }
 
   @override
