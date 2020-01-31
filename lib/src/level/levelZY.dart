@@ -3,7 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:levelApp/src/graphic/graphicZY.dart';
 import '../drawing/circleMachine.dart';
 import '../drawing/circleZY.dart';
-import 'package:dotted_border/dotted_border.dart';
 
 class RoomZY {}
 

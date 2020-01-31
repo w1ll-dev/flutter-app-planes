@@ -3,7 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:levelApp/src/graphic/graphicXZ.dart';
 import '../drawing/circleMachine.dart';
 import 'package:levelApp/src/drawing/circleXZ.dart';
-import 'package:dotted_border/dotted_border.dart';
 
 class RoomXZ {}
 

@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class GraphicZY extends StatefulWidget {
-  Stopwatch watch = Stopwatch();
-  Timer timer;
+  // Stopwatch watch = Stopwatch();
+  // Timer timer;
   
-  GraphicZY({this.timer, this.watch
-  });
+  // GraphicZY({this.timer, this.watch
+  // });
 
   @override
   _GraphicZYState createState() => _GraphicZYState();
@@ -19,14 +19,14 @@ class _GraphicZYState extends State<GraphicZY> {
   Stopwatch watch = Stopwatch();
   Timer timer;
   
+  startWatch() {
+    watch.start();
+    timer = Timer.periodic(Duration(milliseconds: 800), getDynamicData());
+  }
 
   @override
   Widget build(BuildContext context) {
 
-    startWatch() {
-      watch.start();
-      timer = Timer.periodic(Duration(milliseconds: 800), getDynamicData());
-    }
 
     return Container(
       child: Column(
