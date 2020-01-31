@@ -8,6 +8,7 @@ import '../graphic/graphicXY.dart';
 class RoomXY {}
 
 class LevelXY extends StatefulWidget {
+  
   final RoomXY room;
   double x;
   double y;
