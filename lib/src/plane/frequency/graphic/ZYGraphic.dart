@@ -1,14 +1,15 @@
 import 'dart:async';
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class GraphicXZ extends StatefulWidget {
+class ZYGraphic extends StatefulWidget {
   @override
-  _GraphicXZState createState() => _GraphicXZState();
+  _ZYGraphicState createState() => _ZYGraphicState();
 }
 
-class _GraphicXZState extends State<GraphicXZ> {
+class _ZYGraphicState extends State<ZYGraphic> {
   Stopwatch watch = Stopwatch();
   Timer timer;
   
@@ -32,6 +33,7 @@ class _GraphicXZState extends State<GraphicXZ> {
               primaryXAxis: NumericAxis( 
                 isVisible: false,
               ), 
+
               primaryYAxis: NumericAxis(
                 minimum: 18,
                 maximum: 24, 

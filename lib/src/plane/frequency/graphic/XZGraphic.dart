@@ -1,19 +1,17 @@
 import 'dart:async';
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class GraphicXY extends StatefulWidget {
+class XZGraphic extends StatefulWidget {
   @override
-  _GraphicXYState createState() => _GraphicXYState();
+  _XZGraphicState createState() => _XZGraphicState();
 }
 
-class _GraphicXYState extends State<GraphicXY> {
+class _XZGraphicState extends State<XZGraphic> {
   Stopwatch watch = Stopwatch();
   Timer timer;
   
-
   startWatch() {
     watch.start();
     timer = Timer.periodic(Duration(milliseconds: 800), getDynamicData());
@@ -34,7 +32,6 @@ class _GraphicXYState extends State<GraphicXY> {
               primaryXAxis: NumericAxis( 
                 isVisible: false,
               ), 
-
               primaryYAxis: NumericAxis(
                 minimum: 18,
                 maximum: 24, 
@@ -46,12 +43,13 @@ class _GraphicXYState extends State<GraphicXY> {
               ),
               series: <ChartSeries>[
                 
-                LineSeries<PositionData,double>(
+                LineSeries<SalesData,double>(
                   animationDuration: 0,
                   color: Colors.grey[300],
                   dataSource: getDynamicData(),
-                  xValueMapper: (PositionData position,_) => position.x,
-                  yValueMapper: (PositionData position,_) => position.y,
+                  
+                  xValueMapper: (SalesData sales,_) => sales.x,
+                  yValueMapper: (SalesData sales,_) => sales.y,
                 )
               ],
             ),
@@ -63,12 +61,12 @@ class _GraphicXYState extends State<GraphicXY> {
 }
 
 
-class PositionData{
+class SalesData{
   double x,y;
-  PositionData(this.x, this.y);
+  SalesData(this.x, this.y);
 }
 
-List<PositionData> dynamicData = <PositionData>[];
+List<SalesData> dynamicData = <SalesData>[];
 int j = 0;
 
 dynamic getDynamicData() {
@@ -86,7 +84,7 @@ dynamic getDynamicData() {
     dynamicData.removeAt(0);
   }
 
-  dynamicData.add(PositionData(j.toDouble(), value));
+  dynamicData.add(SalesData(j.toDouble(), value));
 
   return dynamicData;
 }

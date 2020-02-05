@@ -4,15 +4,16 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class GraphicZY extends StatefulWidget {
+class XYGraphic extends StatefulWidget {
   @override
-  _GraphicZYState createState() => _GraphicZYState();
+  _XYGraphicState createState() => _XYGraphicState();
 }
 
-class _GraphicZYState extends State<GraphicZY> {
+class _XYGraphicState extends State<XYGraphic> {
   Stopwatch watch = Stopwatch();
   Timer timer;
   
+
   startWatch() {
     watch.start();
     timer = Timer.periodic(Duration(milliseconds: 800), getDynamicData());
@@ -45,13 +46,12 @@ class _GraphicZYState extends State<GraphicZY> {
               ),
               series: <ChartSeries>[
                 
-                LineSeries<SalesData,double>(
+                LineSeries<PositionData,double>(
                   animationDuration: 0,
                   color: Colors.grey[300],
                   dataSource: getDynamicData(),
-                  
-                  xValueMapper: (SalesData sales,_) => sales.x,
-                  yValueMapper: (SalesData sales,_) => sales.y,
+                  xValueMapper: (PositionData position,_) => position.x,
+                  yValueMapper: (PositionData position,_) => position.y,
                 )
               ],
             ),
@@ -63,12 +63,12 @@ class _GraphicZYState extends State<GraphicZY> {
 }
 
 
-class SalesData{
+class PositionData{
   double x,y;
-  SalesData(this.x, this.y);
+  PositionData(this.x, this.y);
 }
 
-List<SalesData> dynamicData = <SalesData>[];
+List<PositionData> dynamicData = <PositionData>[];
 int j = 0;
 
 dynamic getDynamicData() {
@@ -86,7 +86,7 @@ dynamic getDynamicData() {
     dynamicData.removeAt(0);
   }
 
-  dynamicData.add(SalesData(j.toDouble(), value));
+  dynamicData.add(PositionData(j.toDouble(), value));
 
   return dynamicData;
 }

@@ -3,12 +3,12 @@ import 'package:flutter/rendering.dart';
 import './drawing/circleMachine.dart';
 import './drawing/xzLimit.dart';
 
-class PositionXZ extends StatelessWidget {
+class XZPosition extends StatelessWidget {
   double x;
   double z;
   double g;
 
-  PositionXZ({
+  XZPosition({
     this.x,
     this.z,
     this.g,

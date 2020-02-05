@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import '../plane/frequency/frequencyZY.dart';
+import '../plane/frequency/ZYFrequency.dart';
 import '../plane/position/zyPosition.dart';
 import './position/drawing/circleMachine.dart';
 
 class RoomZY {}
 
-class LevelZY extends StatefulWidget {
+class ZYPlane extends StatefulWidget {
   final RoomZY room;
   double z;
   double y;
@@ -15,7 +15,7 @@ class LevelZY extends StatefulWidget {
   int hzMax;
   int hzMin;
 
-  LevelZY({
+  ZYPlane({
     @required 
     this.room, 
     this.z, 
@@ -27,23 +27,23 @@ class LevelZY extends StatefulWidget {
   }) : assert(room != null);
 
   @override
-  _LevelZYState createState() => _LevelZYState();
+  _ZYPlaneState createState() => _ZYPlaneState();
 }
 
-class _LevelZYState extends State<LevelZY> {
+class _ZYPlaneState extends State<ZYPlane> {
   double z = 0.0; // z position in parent
   double y = 0.0;
 
   positioXY(){
-    return PositionZY(
+    return ZYPosition(
       z: widget.z,
       y: widget.y,
       g: widget.g,
     );
   }
 
-  frequencyXY(){
-    return FrequencyZY(
+  zyFrequency(){
+    return ZYFrequency(
       hz: widget.hz,
       hzMax: widget.hzMax,
       hzMin: widget.hzMin,
@@ -70,7 +70,7 @@ class _LevelZYState extends State<LevelZY> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             positioXY(),
-            frequencyXY(),
+            zyFrequency(),
           ]
         ),
       ),

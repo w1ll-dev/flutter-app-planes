@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import '../plane/position/xyPosition.dart';
-import '../plane/frequency/frequencyXY.dart';
+import '../plane/frequency/XYFrequency.dart';
 
 class RoomXY {}
 
-class LevelXY extends StatefulWidget {
+class XYPlane extends StatefulWidget {
   
   final RoomXY room;
   double x;
@@ -14,7 +14,7 @@ class LevelXY extends StatefulWidget {
   int hzMax;
   int hzMin;
 
-  LevelXY({
+  XYPlane({
     @required 
     this.room, 
     this.x, 
@@ -26,23 +26,23 @@ class LevelXY extends StatefulWidget {
   }) : assert(room != null);
 
   @override
-  _LevelXYState createState() => _LevelXYState();
+  _XYPlaneState createState() => _XYPlaneState();
 }
 
-class _LevelXYState extends State<LevelXY> {
+class _XYPlaneState extends State<XYPlane> {
   double x = 0.0;
   double y = 0.0;
 
-  positioXY(){
-    return PositionXY(
+  xyPosition(){
+    return XYPosition(
       x: widget.x,
       y: widget.y,
       g: widget.g,
     );
   }
 
-  frequencyXY(){
-    return FrequencyXY(
+  xyFrequency(){
+    return XYFrequency(
       hz: widget.hz,
       hzMax: widget.hzMax,
       hzMin: widget.hzMin,
@@ -68,8 +68,8 @@ class _LevelXYState extends State<LevelXY> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            positioXY(),
-            frequencyXY(),
+            xyPosition(),
+            xyFrequency(),
           ],
         ),
       ),

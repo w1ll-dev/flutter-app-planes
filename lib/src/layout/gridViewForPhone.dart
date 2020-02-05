@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../plane/xyPlane.dart';
-import '../plane/xzPlane.dart';
-import '../plane/zyPlane.dart';
+import '../plane/XYPlane.dart';
+import '../plane/XZPlane.dart';
+import '../plane/ZYPlane.dart';
 
 
 class GridViewForPhone extends StatelessWidget {
@@ -64,7 +64,7 @@ class GridViewForPhone extends StatelessWidget {
         ),
         body: TabBarView(
           children: <Widget>[
-            LevelXY( 
+            XYPlane( 
               room: RoomXY(),
               x: this.x,
               y: this.y,
@@ -73,7 +73,7 @@ class GridViewForPhone extends StatelessWidget {
               hzMax: this.hzMax,
               hzMin: this.hzMin,
             ),
-            LevelXZ( 
+            XZPlane( 
               room: RoomXZ(),
               x: this.x,
               z: this.z,
@@ -82,7 +82,7 @@ class GridViewForPhone extends StatelessWidget {
               hzMax: this.hzMax,
               hzMin: this.hzMin,
             ),
-            LevelZY( 
+            ZYPlane( 
               room: RoomZY(),
               z: this.z,
               y: this.y,

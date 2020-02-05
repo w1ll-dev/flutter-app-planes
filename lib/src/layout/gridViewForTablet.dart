@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../plane/xyPlane.dart';
-import '../plane/xzPlane.dart';
-import '../plane/zyPlane.dart';
+import '../plane/XYPlane.dart';
+import '../plane/XZPlane.dart';
+import '../plane/ZYPlane.dart';
 
 class GridViewForTablet extends StatelessWidget {
   double x;
@@ -45,7 +45,7 @@ class GridViewForTablet extends StatelessWidget {
       body: Row(
         children: <Widget>[
           Expanded(
-            child: LevelXY( 
+            child: XYPlane( 
               room: RoomXY(),
               x: this.x,
               y: this.y,
@@ -56,7 +56,7 @@ class GridViewForTablet extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: LevelXZ( 
+            child: XZPlane( 
               room: RoomXZ(),
               x: this.x,
               z: this.z,
@@ -67,7 +67,7 @@ class GridViewForTablet extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: LevelZY( 
+            child: ZYPlane( 
               room: RoomZY(),
               z: this.z,
               y: this.y,

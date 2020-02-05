@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import './graphic/graphicXY.dart';
+import './graphic/ZYGraphic.dart';
 
-class FrequencyXY extends StatelessWidget {
+class ZYFrequency extends StatelessWidget {
   int hz;
   int hzMax;
   int hzMin;
 
-  FrequencyXY({
+  ZYFrequency({
     this.hz,
     this.hzMax,
     this.hzMin,
@@ -45,7 +45,7 @@ class FrequencyXY extends StatelessWidget {
         Stack(
           alignment: Alignment(0, 0),
           children: <Widget>[
-            GraphicXY(),
+            ZYGraphic(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[

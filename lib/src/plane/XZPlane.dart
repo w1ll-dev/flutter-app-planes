@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import '../plane/position/xzPosition.dart';
-import '../plane/frequency/frequencyXZ.dart';
+import '../plane/frequency/XZFrequency.dart';
 import './position/drawing/circleMachine.dart';
 
 class RoomXZ {}
 
-class LevelXZ extends StatefulWidget {
+class XZPlane extends StatefulWidget {
   final RoomXZ room;
   double x = 0.0;
   double z = 0.0;
@@ -15,7 +15,7 @@ class LevelXZ extends StatefulWidget {
   int hzMax;
   int hzMin;
 
-  LevelXZ({
+  XZPlane({
     @required  
     this.room, 
     this.x, 
@@ -27,23 +27,23 @@ class LevelXZ extends StatefulWidget {
   }) : assert(room != null);
 
   @override
-  _LevelXZState createState() => _LevelXZState();
+  _XZPlaneState createState() => _XZPlaneState();
 }
 
-class _LevelXZState extends State<LevelXZ> {
+class _XZPlaneState extends State<XZPlane> {
   double x = 0.0; 
   double z = 0.0;
 
   positioXZ(){
-    return PositionXZ(
+    return XZPosition(
       x: widget.x,
       z: widget.z,
       g: widget.g,
     );
   }
 
-  frequencyXZ(){
-    return FrequencyXZ(
+  xzFrequency(){
+    return XZFrequency(
       hz: widget.hz,
       hzMax: widget.hzMax,
       hzMin: widget.hzMin,
@@ -73,7 +73,7 @@ class _LevelXZState extends State<LevelXZ> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             positioXZ(),
-            frequencyXZ(),
+            xzFrequency(),
           ],
         ),
       ),
