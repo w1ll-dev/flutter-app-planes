@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:ui' as ui;
 
-class CircleXY extends CustomPainter{
-  double x;
+class CircleZY extends CustomPainter{
+  double z;
   double y;
 
   @override
@@ -12,8 +12,10 @@ class CircleXY extends CustomPainter{
     paint.color = Colors.lightGreenAccent[700];
     paint.style = PaintingStyle.stroke;
     paint.strokeWidth = size.width/35;
-    if(x >= 13 || x <= -13){
-      if(x > 13){
+    var center = Offset(size.width / 2, size.height / 2);
+    
+    if(z >= 13 || z <= -13){
+      if(z > 13){
         paint.color = Colors.red;
       }else if(y != 0){
         paint.color = Colors.red;
@@ -27,9 +29,11 @@ class CircleXY extends CustomPainter{
       }
     }
     for(int i=0; i<36; i++){
-      canvas.drawArc(Offset(30, 35)
-      & Size(350, 350), (-90.0 + i*10)*0.0174533, 8*0.0174533,
-        false, paint..color = paint.color
+      canvas.drawArc(
+        Rect.fromCircle(center: center,radius: size.width / (5/2)),
+        (-90.0 + i*10)*0.0174533, 8*0.0174533,
+        false,
+        paint
       );
     }
   }
@@ -38,7 +42,7 @@ class CircleXY extends CustomPainter{
   bool shouldRepaint(CustomPainter oldDelegate) {
     return false;
   }
-  CircleXY({this.x, this.y});
+  CircleZY({this.z, this.y});
 }
 
 

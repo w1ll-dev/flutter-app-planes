@@ -46,13 +46,12 @@ class _GraphicXYState extends State<GraphicXY> {
               ),
               series: <ChartSeries>[
                 
-                LineSeries<SalesData,double>(
+                LineSeries<PositionData,double>(
                   animationDuration: 0,
                   color: Colors.grey[300],
                   dataSource: getDynamicData(),
-                  
-                  xValueMapper: (SalesData sales,_) => sales.x,
-                  yValueMapper: (SalesData sales,_) => sales.y,
+                  xValueMapper: (PositionData position,_) => position.x,
+                  yValueMapper: (PositionData position,_) => position.y,
                 )
               ],
             ),
@@ -64,12 +63,12 @@ class _GraphicXYState extends State<GraphicXY> {
 }
 
 
-class SalesData{
+class PositionData{
   double x,y;
-  SalesData(this.x, this.y);
+  PositionData(this.x, this.y);
 }
 
-List<SalesData> dynamicData = <SalesData>[];
+List<PositionData> dynamicData = <PositionData>[];
 int j = 0;
 
 dynamic getDynamicData() {
@@ -87,7 +86,7 @@ dynamic getDynamicData() {
     dynamicData.removeAt(0);
   }
 
-  dynamicData.add(SalesData(j.toDouble(), value));
+  dynamicData.add(PositionData(j.toDouble(), value));
 
   return dynamicData;
 }
