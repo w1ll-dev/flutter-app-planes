@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import '../plane/frequency/frequencyZY.dart';
-import '../plane/position/positionZY.dart';
+import '../plane/position/xzPosition.dart';
+import '../plane/frequency/frequencyXZ.dart';
 import './position/drawing/circleMachine.dart';
 
-class RoomZY {}
+class RoomXZ {}
 
-class LevelZY extends StatefulWidget {
-  final RoomZY room;
-  double z;
-  double y;
+class LevelXZ extends StatefulWidget {
+  final RoomXZ room;
+  double x = 0.0;
+  double z = 0.0;
   double g;
   int hz;
   int hzMax;
   int hzMin;
 
-  LevelZY({
-    @required 
+  LevelXZ({
+    @required  
     this.room, 
-    this.z, 
-    this.y,
+    this.x, 
+    this.z,
     this.g,
     this.hz,
     this.hzMax,
@@ -27,28 +27,29 @@ class LevelZY extends StatefulWidget {
   }) : assert(room != null);
 
   @override
-  _LevelZYState createState() => _LevelZYState();
+  _LevelXZState createState() => _LevelXZState();
 }
 
-class _LevelZYState extends State<LevelZY> {
-  double z = 0.0; // z position in parent
-  double y = 0.0;
+class _LevelXZState extends State<LevelXZ> {
+  double x = 0.0; 
+  double z = 0.0;
 
-  positioXY(){
-    return PositionZY(
+  positioXZ(){
+    return PositionXZ(
+      x: widget.x,
       z: widget.z,
-      y: widget.y,
       g: widget.g,
     );
   }
 
-  frequencyXY(){
-    return FrequencyZY(
+  frequencyXZ(){
+    return FrequencyXZ(
       hz: widget.hz,
       hzMax: widget.hzMax,
       hzMin: widget.hzMin,
     );
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -58,20 +59,22 @@ class _LevelZYState extends State<LevelZY> {
 
     double ymax = context.findRenderObject()?.paintBounds?.bottom ?? markerHight ;
 
-    return Container(
+
+    return SizedBox(
       child: GestureDetector(
         onPanUpdate: (p) {
           setState(() {
-            z += p.delta.dx;
-            y = (y + p.delta.dy) >ymax - markerHight ? ymax - markerHight : y + p.delta.dy;
+            x += p.delta.dx;
+            z = (z+p.delta.dy) >ymax - markerHight ? ymax -markerHight : z+p.delta.dy;
+
           });
         },
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            positioXY(),
-            frequencyXY(),
-          ]
+            positioXZ(),
+            frequencyXZ(),
+          ],
         ),
       ),
     );
@@ -79,20 +82,20 @@ class _LevelZYState extends State<LevelZY> {
 }
 
 class Marker extends StatelessWidget {
+  final double x;
   final double z;
-  final double y;
 
-  Marker({this.z: 500.0, this.y: 500.0,});
+  Marker({this.x: 500.0, this.z: 500.0,});
 
   @override
   Widget build(BuildContext context) {
-    print("z: $z, y: $y");
+    print("x: $x, z: $z");
     return Transform(
-      transform: Matrix4.translationValues(z, y, 0.0), 
+      transform: Matrix4.translationValues(x, z, 0.0), 
       child: CustomPaint(
         painter: CircleMachine(),
         child: Container(),
-      ) 
+      )
     );
   }
 }

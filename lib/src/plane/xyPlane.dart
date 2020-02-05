@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../plane/position/positionXY.dart';
+import '../plane/position/xyPosition.dart';
 import '../plane/frequency/frequencyXY.dart';
 
 class RoomXY {}

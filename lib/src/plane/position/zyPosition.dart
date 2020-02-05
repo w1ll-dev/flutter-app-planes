@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import './drawing/circleMachine.dart';
-import './drawing/circleZY.dart';
+import './drawing/zyLimit.dart';
 
 class PositionZY extends StatelessWidget {
   double z;

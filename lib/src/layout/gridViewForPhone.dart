@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:levelApp/src/plane/ZYPlane.dart';
-import '../plane/XYPlane.dart';
-import '../plane/XZPlane.dart';
-import '../plane/ZYPlane.dart';
+import '../plane/xyPlane.dart';
+import '../plane/xzPlane.dart';
+import '../plane/zyPlane.dart';
 
 
 class GridViewForPhone extends StatelessWidget {
