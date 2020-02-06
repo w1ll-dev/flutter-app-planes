@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:ui' as ui;
-import 'dart:math';
 
 class CircleXY extends CustomPainter{
   double x;

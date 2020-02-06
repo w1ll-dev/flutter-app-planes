@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import '../plane/frequency/ZYFrequency.dart';
-import '../plane/position/zyPosition.dart';
+import './frequency/ZYFrequency.dart';
+import './position/zyPosition.dart';
 import './position/drawing/circleMachine.dart';
 
 class RoomZY {}

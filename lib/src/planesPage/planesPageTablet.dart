@@ -3,7 +3,7 @@ import '../planesPage/planes/XYPlane.dart';
 import '../planesPage/planes/XZPlane.dart';
 import '../planesPage/planes/ZYPlane.dart';
 
-class GridViewForTablet extends StatelessWidget {
+class PlanesPageTablet extends StatelessWidget {
   double x;
   double y;
   double z;
@@ -13,7 +13,7 @@ class GridViewForTablet extends StatelessWidget {
   int hzMin;
   dynamic startWatch;
 
-  GridViewForTablet({
+  PlanesPageTablet({
     this.x,
     this.y,
     this.z,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import '../plane/position/xzPosition.dart';
-import '../plane/frequency/XZFrequency.dart';
+import './position/xzPosition.dart';
+import './frequency/XZFrequency.dart';
 import './position/drawing/circleMachine.dart';
 
 class RoomXZ {}

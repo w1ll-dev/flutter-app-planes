@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../plane/position/xyPosition.dart';
-import '../plane/frequency/XYFrequency.dart';
+import './position/xyPosition.dart';
+import './frequency/XYFrequency.dart';
 
 class RoomXY {}
 
