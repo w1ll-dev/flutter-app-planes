@@ -68,20 +68,24 @@ class _SensorPageState extends State<SensorPage> {
     }
 
     List<BluetoothService> services = await widget.device.discoverServices();
-    services.forEach((service) {
-      if (service.uuid.toString() == SERVICE_UUID) {
-        service.characteristics.forEach((characteristic) {
-          if (characteristic.uuid.toString() == CHARACTERISTIC_UUID) {
-            characteristic.setNotifyValue(!characteristic.isNotifying);
-            stream = characteristic.value;
+    services.forEach(
+      (service) {
+        if (service.uuid.toString() == SERVICE_UUID) {
+          service.characteristics.forEach(
+            (characteristic) {
+              if (characteristic.uuid.toString() == CHARACTERISTIC_UUID) {
+                characteristic.setNotifyValue(!characteristic.isNotifying);
+                stream = characteristic.value;
 
-            setState(() {
-              isReady = true;
-            });
-          }
-        });
-      }
-    });
+                setState(() {
+                  isReady = true;
+                });
+              }
+            },
+          );
+        }
+      },
+    );
 
     if (!isReady) {
       _Pop();
@@ -140,9 +144,16 @@ class _SensorPageState extends State<SensorPage> {
         body: Container(
           child: !isReady
               ? Center(
+                  // child: Text(
+                  //   "Waiting...",
+                  //   style: TextStyle(fontSize: 24, color: Colors.red),
+                  // ),
                   child: Text(
-                    "Waiting...",
-                    style: TextStyle(fontSize: 24, color: Colors.red),
+                    'SISMIC',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Quebec Black',
+                    ),
                   ),
                 )
               : Container(
@@ -155,7 +166,9 @@ class _SensorPageState extends State<SensorPage> {
 
                       if (snapshot.connectionState == ConnectionState.active) {
                         // double currentValue = 0.0;
-                        var currentValue = double.parse(_dataParser(snapshot.data));
+                        var currentValue = double.parse(
+                          _dataParser(snapshot.data),
+                        );
                         // traceDust.add(double.tryParse(currentValue) ?? 0);
 
                         return Center(
@@ -224,7 +237,7 @@ class _PlanesPagePhoneState extends State<PlanesPagePhone> {
   int hz = 0;
   int hzMax = 0;
   int hzMin = 0;
-  
+
   // double y = ble.randomData()[1];
   // double z = ble.randomData()[2];
   // double g = ble.randomData()[3];
@@ -270,7 +283,9 @@ class _PlanesPagePhoneState extends State<PlanesPagePhone> {
           centerTitle: true,
           title: Text(
             'SISMIC',
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(
+              color: Colors.black,
+            ),
           ),
           bottom: TabBar(
             unselectedLabelColor: Colors.black,
