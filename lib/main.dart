@@ -31,14 +31,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // gridViewForPhone(){
-  //   return GridViewForPhone();
-  // }
-  // gridViewForTablet(){
-  //   return GridViewForTablet();
-  // }
-
-
   @override
   Widget build(BuildContext context) {
     final double shortestSlide = MediaQuery.of(context).size.shortestSide;

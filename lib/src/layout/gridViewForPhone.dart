@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:levelApp/src/pages/bluetoothPage/bluetoothPagePhone.dart';
 import 'package:levelApp/src/pages/planesPage/planesPagePhone.dart';
+// import 'package:levelApp/src/pages/planesPage/planesPagePhone.dart';
 // import '../pages/bluetoothPage/bluetoothPagePhone.dart';
 // import 'package:levelApp/src/data/connection/bleData.dart';
 
@@ -14,7 +16,7 @@ import 'package:levelApp/src/pages/planesPage/planesPagePhone.dart';
 class GridViewForPhone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return PlanesPagePhone();
+    return BluetoothPagePhone();
     // return SensorPage();
   }
 }

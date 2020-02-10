@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:levelApp/src/data/connection/bleWidgets.dart';
+import 'package:levelApp/src/pages/planesPage/planesPagePhone.dart';
 
 class BluetoothPagePhone extends StatelessWidget {
   @override
@@ -110,7 +111,7 @@ class FindDevicesScreen extends StatelessWidget {
                           onTap: () => Navigator.of(context)
                               .push(MaterialPageRoute(builder: (context) {
                             r.device.connect();
-                            return DeviceScreen(device: r.device);
+                            return SensorPage(device: r.device);
                           })),
                         ),
                       )
@@ -133,9 +134,11 @@ class FindDevicesScreen extends StatelessWidget {
             );
           } else {
             return FloatingActionButton(
-                child: Icon(Icons.search),
-                onPressed: () => FlutterBlue.instance
-                    .startScan(timeout: Duration(seconds: 4)));
+              child: Icon(Icons.search),
+              onPressed: () => FlutterBlue.instance.startScan(
+                timeout: Duration(seconds: 4),
+              ),
+            );
           }
         },
       ),
