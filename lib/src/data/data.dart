@@ -25,6 +25,7 @@ randomData(){
         hzMin = value;
     }
   }
+  
 
   randomPositions(Timer timer) {
     var rng = Random();
@@ -60,6 +61,7 @@ randomData(){
   return data;
 }
 
-// void main(){
-//   randomData();
-// }
+void main(){
+  randomData();
+}
+

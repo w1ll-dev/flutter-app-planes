@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../planesPage/planes/XYPlane.dart';
-import '../planesPage/planes/XZPlane.dart';
-import '../planesPage/planes/ZYPlane.dart';
+import '../pages/planesPage/planes/XYPlane.dart';
+import '../pages/planesPage/planes/XZPlane.dart';
+import '../pages/planesPage/planes/ZYPlane.dart';
 
 class GridViewForTablet extends StatelessWidget {
   double x;

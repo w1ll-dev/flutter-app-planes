@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../planesPage/planes/XYPlane.dart';
 import '../planesPage/planes/XZPlane.dart';
 import '../planesPage/planes/ZYPlane.dart';
-import '../data/data.dart' as ble;
+import '../../data/data.dart' as ble;
 
 class PlanesPagePhone extends StatefulWidget {
   @override
